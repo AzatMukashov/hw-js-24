@@ -1,0 +1,15 @@
+.ball-numbers {
+    display: flex;
+    flex-direction: row;
+}
+
+.number {
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 1.5em;
+    display: flex;
+    justify-content: center;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    padding: 1.3rem;
+}
