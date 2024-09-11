@@ -1,5 +1,5 @@
 import './App.css'
-import {useState, useRef} from "react";
+import {useState} from "react";
 import Ball from './components/ball.tsx';
 
 interface INumber {
@@ -10,14 +10,9 @@ const App = () => {
     const [num, setNum] = useState<INumber[]>([
         {numbers: [5, 11, 16, 23, 32]}
     ]);
-    const buttonRef = useRef<HTMLButtonElement>(null);
-
     const handleClick = () => {
-        console.log('hi');
-        setNum(num);
-        if (buttonRef.current) {
-            buttonRef.current.click();
-        }
+        const newNumbers = generateRandomNumbers();
+        setNum([{numbers: newNumbers}]);
     };
     return (
         <>
@@ -25,5 +20,12 @@ const App = () => {
         </>
     )
 };
-
+const generateRandomNumbers = (): number[] => {
+    const numbers = new Set<number>();
+    while (numbers.size < 5) {
+        const randomNum = Math.floor(Math.random() * (36 - 5 + 1)) + 5;
+        numbers.add(randomNum);
+    }
+    return Array.from(numbers).sort((a, b) => a - b);
+};
 export default App
