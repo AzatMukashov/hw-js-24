@@ -1,5 +1,5 @@
-import './App.css'
-import {useState} from "react";
+import './App.css';
+import {useState} from 'react';
 import Ball from './components/ball.tsx';
 
 interface INumber {
@@ -18,7 +18,7 @@ const App = () => {
         <>
             <Ball numbers={num[0].numbers} handleClick={handleClick}/>
         </>
-    )
+    );
 };
 const generateRandomNumbers = (): number[] => {
     const numbers = new Set<number>();
@@ -28,4 +28,4 @@ const generateRandomNumbers = (): number[] => {
     }
     return Array.from(numbers).sort((a, b) => a - b);
 };
-export default App
+export default App;
